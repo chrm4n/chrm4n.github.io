@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrm4n</title>
+    <link>https://chrm4n.github.io/</link>
+    <description>Recent content on chrm4n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 07 Jun 2021 15:58:22 +0300</lastBuildDate><atom:link href="https://chrm4n.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ScriptKiddie</title>
+      <link>https://chrm4n.github.io/archives/hackthebox/scriptkiddie/</link>
+      <pubDate>Mon, 07 Jun 2021 15:58:22 +0300</pubDate>
+      
+      <guid>https://chrm4n.github.io/archives/hackthebox/scriptkiddie/</guid>
+      <description>Overview ScriptKiddie is an easy linux box, designed by 0xdf. Overall the exploitation of this box consists of a command injection vulnerability in Metasploit Framework&amp;rsquo;s msfvenom payload generator to get access as a low privileged user. From there, a command injection to reach the next user and a pretty straight forward sudo access privilege escalation method to get root.
+Reconnaissance Port Scan We will start our port scan by using nmap, specifically the following command:</description>
+    </item>
+    
+    <item>
+      <title>whoami</title>
+      <link>https://chrm4n.github.io/whoami/</link>
+      <pubDate>Thu, 01 Apr 2021 00:51:36 +0300</pubDate>
+      
+      <guid>https://chrm4n.github.io/whoami/</guid>
+      <description>My name is Chrysostomos Manousis and I am a Cybersecurity enthusiast who works as a SOC Analyst. I hold a master’s degree in Electrical and Computer Engineering, focused on Software and Hardware Engineering. I am certified as a Junior Penetration Tester (eJPT) by eLearnSecurity and currently pursuing the OSCP cerification. The purpose of this blog is to share my knowledge and thoughts on a variety of cybersecurity related topics as well as my HackTheBox writeups.</description>
+    </item>
+    
+  </channel>
+</rss>
